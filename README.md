@@ -101,6 +101,7 @@ Run on AWS:
 
 ```bash
 export API_URL=CHANGEME
+nvm use
 yarn deploy
 ```
 
