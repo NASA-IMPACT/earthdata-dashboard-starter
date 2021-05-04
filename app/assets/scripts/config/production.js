@@ -2,7 +2,7 @@
 module.exports = {
   default: {
     environment: 'production',
-    appTitle: 'Sample Dashboard',
+    appTitle: 'Earthdata Dashboard Starter',
     appDescription: 'Explore the data using our new experimental dashboard.',
     twitterHandle: '@NASAEarthData',
     mbToken: 'pk.eyJ1IjoiY292aWQtbmFzYSIsImEiOiJja2F6eHBobTUwMzVzMzFueGJuczF6ZzdhIn0.8va1fkyaWgM57_gZ2rBMMg',

@@ -1,10 +1,10 @@
 {
-  "name": "earthdata-example-dashboard",
+  "name": "earthdata-dashboard-starter",
   "version": "1.9.1",
-  "description": "Frontend application for the Earthdata Example Dashboard",
+  "description": "Frontend application for the Earthdata Dashboard",
   "repository": {
     "type": "git",
-    "url": "https://github.com/NASA-IMPACT/earthdata-example-dashboard.git"
+    "url": "https://github.com/NASA-IMPACT/earthdata-dashboard-starter.git"
   },
   "author": {
     "name": "Development Seed",
@@ -12,14 +12,14 @@
   },
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/NASA-IMPACT/earthdata-example-dashboard/issues"
+    "url": "https://github.com/NASA-IMPACT/earthdata-dashboard-starter/issues"
   },
-  "homepage": "https://github.com/NASA-IMPACT/earthdata-example-dashboard",
+  "homepage": "https://github.com/NASA-IMPACT/earthdata-dashboard-starter",
   "scripts": {
     "postinstall": "[ -f app/assets/scripts/config/local.js ] || cp app/assets/scripts/config/local.js.example app/assets/scripts/config/local.js",
     "serve": "NODE_ENV=development gulp serve",
     "build": "NODE_ENV=production gulp",
-    "deploy": "yarn build && cd cdk && cdk deploy",
+    "deploy": "nvm install & npm install && yarn build && cd cdk && cdk deploy",
     "lint": "yarn lint:js && yarn lint:css",
     "lint:js": "eslint app/assets/scripts/ --ext .js",
     "lint:css": "stylelint 'app/assets/styles/**/**' 'app/assets/scripts/**/*.js'",

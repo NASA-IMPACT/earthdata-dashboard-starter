@@ -1,8 +1,8 @@
-# Earthdata Example Dashboard
+# Earthdata Dashboard Starter
 
-The Earthdata Example Dashboard is a stripped-down version of the dashboard developed to support deriving insights on the impact of COVID-19 on different environmental factors. This stripped down version of the site supports exploring Earth Satellite imagery.
+The Earthdata Dashboard Starter is a stripped-down version of the dashboard developed to support deriving insights on the impact of COVID-19 on different environmental factors. This stripped down version of the site supports exploring Earth Satellite imagery.
 
-Source code: https://github.com/nasa-impact/earthdata-example
+Source code: https://github.com/nasa-impact/earthdata-simple
 Visit the live site on: https://earthdata.nasa.gov/covid19/
 
 This dashboard is powered by an [open source API](https://github.com/NASA-IMPACT/covid-api/) that is developed in parallel. This API focuses on serving the Cloud Optimized GeoTIFF and time-series indicator data that people can interact with in the dashboard.
