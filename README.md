@@ -106,3 +106,7 @@ yarn deploy
 
 # License
 This project is licensed under **Apache 2**, see the [LICENSE](LICENSE) file for more details.
+
+# Troubleshooting
+
+* Syntax error when running `cdk` commands - Check that `cdk` command is being run with nodejs and not another language version (such as python).
