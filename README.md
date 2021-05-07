@@ -82,6 +82,11 @@ The system will watch files and execute tasks whenever one of them changes.
 The site will automatically refresh since it is bundled with livereload.
 
 # Deployment
+Set the AWS environment variables:
+```
+export AWS_ACCOUNT_ID=$(aws sts get-caller-identity | jq .Account -r)
+export AWS_REGION=$(aws configure get region)
+```
 To prepare the app for deployment run:
 
 ```
