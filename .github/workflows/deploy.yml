@@ -28,7 +28,7 @@ jobs:
         run: yarn install
 
       - name: Install aws-cdk
-        run: yarn install -g aws-cdk
+        run: yarn global add aws-cdk
 
       - name: Deploy the resources to AWS
         run: yarn deploy
