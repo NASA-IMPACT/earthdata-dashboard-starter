@@ -1,0 +1,39 @@
+name: Deploy Earthdata Dashboard Starter to MAAP AWS Account
+on:
+  push:
+    branches:
+      - main
+
+env:
+  AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+  AWS_REGION: ${{ secrets.AWS_REGION }}
+  API_URL: ${{ secrets.API_URL }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure AWS credentials from MAAP AWS Account
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Check out repository code
+        uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '12'
+
+      - name: Install required packages
+        run: yarn install
+
+      - name: Install aws-cdk
+        run: yarn global add aws-cdk
+
+      - name: Deploy the resources to AWS
+        run: yarn deploy
+      
+      - run: echo "Successfully deployed."
