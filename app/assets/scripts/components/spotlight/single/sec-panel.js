@@ -206,7 +206,7 @@ class SecPanel extends React.Component {
         initialState={isLargeViewport()}
         headerContent={
           <PanelHeadline>
-            <PanelTitle>Insights</PanelTitle>
+            <PanelTitle>Biomass Product Sharing</PanelTitle>
           </PanelHeadline>
         }
         bodyContent={

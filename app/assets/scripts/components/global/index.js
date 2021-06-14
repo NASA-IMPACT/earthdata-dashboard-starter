@@ -119,12 +119,7 @@ const ExploreCarto = styled.section`
 const dateMax = (...args) =>
   args.reduce((curr, d) => (curr.getTime() > d.getTime() ? curr : d));
 
-const cogLayers = {
-  "MOD13A1_006": {
-    title: <>MODIS Vegetation Indices</>,
-    unit: <></>
-  }
-};
+const cogLayers = {};
 
 class GlobalExplore extends React.Component {
   constructor (props) {

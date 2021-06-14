@@ -138,15 +138,13 @@ class ExpMapSecPanel extends React.Component {
         initialState={isLargeViewport()}
         headerContent={
           <PanelHeadline>
-            <PanelTitle>Insights</PanelTitle>
+            <PanelTitle>MAAP</PanelTitle>
           </PanelHeadline>
         }
         bodyContent={
           <BodyScroll>
             <SummaryExpandable>
-              <p>As communities around the world have changed their behavior in response to global phenomena, NASA satellites have observed associated changes in the environment.</p>
-              <p>Use the dashboard to interact with real NASA data and investigate how these phenomena affected Earth’s air, land, and water.</p>
-              <p>This experimental dashboard will continue to evolve as more data become available.</p>
+              <p>The Multi-Mission Algorithm and Analysis Platform (MAAP) is a collaborative science platform for biomass research. The platform is a collaboration between science and engineering teams at NASA and ESA. This experimental dashboard enables exploration of the data made available in the platform.</p>
             </SummaryExpandable>
             <InsightsBlock>
               {this.renderContent()}

@@ -7,7 +7,7 @@ export class CdkStack extends cdk.Stack {
     super(scope, id, props);
 
     // The code that defines your stack goes here
-    const myBucket = new s3.Bucket(this, "eo-lab-website", {
+    const myBucket = new s3.Bucket(this, `maap-dashboard-${process.env.STAGE}`, {
       publicReadAccess: true,
       removalPolicy: cdk.RemovalPolicy.DESTROY,        
       websiteIndexDocument: "index.html"
