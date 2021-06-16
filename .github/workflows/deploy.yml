@@ -10,6 +10,7 @@ env:
   AWS_REGION: ${{ secrets.AWS_REGION }}
   DASHBOARD_BUCKET: ${{ secrets.DASHBOARD_BUCKET }}
   API_URL: ${{ secrets.API_URL }}
+  STAGING_API_URL: ${{ secrets.STAGING_API_URL }}
 
 jobs:
   fetch-branch:
