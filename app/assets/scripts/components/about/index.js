@@ -41,9 +41,10 @@ export default class About extends React.Component {
             <PageConstrainer>
               <Prose>
                 <p>The ESA-NASA Joint Multi-Mission Algorithm and Analysis Platform (MAAP) is a collaborative project focused on improving the understanding of aboveground terrestrial carbon dynamics.</p>
-                <p>Learn more on the MAAP project site: <a href='https://scimaap.net/'>scimaap.net</a></p>
+                <p>The goal of this dashboard is to visualize the MAAP datasets and therefore enable exploration of the MAAP data.</p>
+                <p>Learn more about the MAAP on the project site at <a href='https://scimaap.net/'>scimaap.net</a></p>
                 <p>
-                  To learn more about NASA Earth Science, go to <a href='https://nasa.gov/earth'>nasa.gov/earth</a>.
+                Learn more about NASA Earth Science at <a href='https://nasa.gov/earth'>nasa.gov/earth</a>.
                 </p>
               </Prose>
             </PageConstrainer>

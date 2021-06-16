@@ -484,9 +484,16 @@ class Home extends React.Component {
                   <IntroWelcomeTitle>Welcome</IntroWelcomeTitle>
                   <Prose>
                     <p>
-                      As communities around the world have changed their behavior in response
-                      to the spread of global phenomena, NASA satellites have observed changes in the
-                      environment. <Link to='/about' title='Read more on the about page'>Read more...</Link>
+                      Similar to how communities around the world have changed their behavior 
+                      in response to the spread of global phenomena, NASA satellites have 
+                      observed changes in the environment.
+
+                      NASA's Land, Vegetation, and Ice Sensor or "LVIS," is an airborne, 
+                      wide-swath imaging laser altimeter system that is flown over target 
+                      areas to collect data on surface topography and 3D structures. In 
+                      February through-March 2016, the LVIS was mounted on the Langley 
+                      King Air aircraft and flown over selected sites in Gabon, Africa, 
+                      as part of the joint NASA/ESA/DLR/AGEOS Afrisar Campaign. <Link to='/about' title='Read more on the about page'>Read more...</Link>
                     </p>
                   </Prose>
                 </IntroWelcome>
