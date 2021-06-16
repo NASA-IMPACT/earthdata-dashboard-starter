@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - main
-      - aimee-deploy
+      - staging
 
 env:
   AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
