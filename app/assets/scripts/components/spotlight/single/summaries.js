@@ -28,7 +28,7 @@ const summaries = {
 
     </>
   ),
-  boreal-fc: (
+  'boreal-fc': (
     <>
      <b>Forest structure pattern in the taiga-tundra ecotone</b>
       </p>
