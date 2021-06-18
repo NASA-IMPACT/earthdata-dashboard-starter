@@ -18,12 +18,12 @@ const summaries = {
       </p>
       <p>
         <b>Landsat Covariates</b>
-        14 Different variables are being calculated based on Landsat 8 surface reflectance values. The composite shown here is made with data from spring and summer data between 2015-2020.
-        The map layer here, shows the maximum Normalized Difference Vegatation Index (NVDI), a measure of plant health, over the time period.
+        14 different variables derived from Landsat 8 surface reflectance values. The composite shown here is made with data from spring and summer data between 2015-2020.
+        The map layer, shows the maximum Normalized Difference Vegatation Index (NVDI), a measure of plant health, over the time period.
       </p>
       <p>
         <b>Elevation covariates derived from Copernicus 30m DEM</b>
-        The map layer shows the slope of the topography, a component that influences the growth of vegetation.
+        5 different varaibles based on elevation are included in the product. The map layer shows the TSRI (topographic solar radiation index), a transformation of topographic aspect (directional topographic exposure). It can range from 0 (cold NE slopes) to 1 (warm SW slopes). We include TSRI as a predictor of boreal aboveground biomass density.
       </p>
 
     </>
