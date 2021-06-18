@@ -28,9 +28,10 @@ const summaries = {
 
     </>
   ),
-  'boreal-fc': (
+  taiga: (
     <>
-     <b>Forest structure pattern in the taiga-tundra ecotone</b>
+      <p>
+        <b>Forest structure pattern in the taiga-tundra ecotone</b>
       </p>
       <p>The forest structure pattern classification is made up of 11 pixel-level classes formed from the combination of the magnitude and gradient of tree canopy cover. This indicates the pattern of forest structure for each pixel in the bioclimatic envelope. The magnitude levels (<em>Intermediate, Open, and Sparse</em>) indicate the percentage of the canopy portion/extent. <em>Sparse</em> is 1-5% tree cover, <em>Open</em> is 6-30% tree cover, and <em>Intermediate &amp; Closed</em> corresponds to greater than 30% tree cover. The abruptness levels (<em>Closed, Abrupt, Diffuse-rapid, Diffuse-gradual</em>) indicate the gradient of the tree canopy extent. Read more about these classifications <a href='https://doi.org/10.1088/1748-9326/abb2c7'>https://doi.org/10.1088/1748-9326/abb2c7</a></p>
 
