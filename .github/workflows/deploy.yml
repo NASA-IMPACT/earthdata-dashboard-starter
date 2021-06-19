@@ -1,0 +1,55 @@
+name: Deploy Earthdata Dashboard Starter to AWS Account
+on:
+  push:
+    branches:
+      - main
+      - staging
+
+env:
+  AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+  AWS_REGION: ${{ secrets.AWS_REGION }}
+  DASHBOARD_BUCKET: ${{ secrets.DASHBOARD_BUCKET }}
+  API_URL: ${{ secrets.API_URL }}
+  STAGING_API_URL: ${{ secrets.STAGING_API_URL }}
+
+jobs:
+  fetch-branch:
+    runs-on: ubuntu-latest
+    outputs:
+      branch: ${{ steps.extract_branch.outputs.branch }}    
+    steps:
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+
+  deploy:
+    needs: fetch-branch
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure AWS credentials from AWS Account
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Check out repository code
+        uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '12'
+
+      - name: Install required packages
+        run: yarn install
+
+      - name: Install aws-cdk
+        run: yarn global add aws-cdk
+
+      - name: Deploy the resources to AWS
+        env:
+          STAGE: ${{ needs.fetch-branch.outputs.branch }}
+        run: yarn deploy
+
+      - run: echo "Successfully deployed."
