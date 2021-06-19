@@ -68,10 +68,10 @@ const toggleOrAddLayer = (mbMap, id, source, type, paint, beforeId) => {
         id: id,
         type: type,
         source: id,
+        'source-layer': source['source_layer'],
         layout: {},
         paint
-      },
-      beforeId
+      }
     );
   }
 };
@@ -328,10 +328,9 @@ export const layerTypes = {
         vecId,
         vectorL,
         'line',
-        inferPaint,
-        'admin-0-boundary-bg'
+        inferPaint
       );
-      toggleOrAddLayer(mbMap, rastId, rasterL, 'raster', {}, vecId);
+      toggleOrAddLayer(mbMap, rastId, rasterL, 'raster', {});
 
       fetch(vectorL.data)
         .then((res) => res.json())
@@ -342,5 +341,38 @@ export const layerTypes = {
           console.log(err); // eslint-disable-line no-console
         });
     }
-  }
+  },
+  'vector': {
+    hide: (ctx, layerInfo) => {
+      const { mbMap } = ctx;
+      const { id } = layerInfo;
+
+      const vecId = `${id}-vector`;
+
+      if (mbMap.getSource(vecId)) {
+        mbMap.setLayoutProperty(vecId, 'visibility', 'none');
+      }
+    },
+    show: (ctx, layerInfo) => {
+      console.log('in vector case');
+      console.log(layerInfo);
+
+      const { mbMap } = ctx;
+      const { id, source, paint } = layerInfo;
+      const vecId = `${id}-vector`;
+
+      const vectorL = {
+        ...source,
+        data: source.data
+      };
+
+      toggleOrAddLayer(
+        mbMap,
+        vecId,
+        vectorL,
+        'circle',
+        paint
+      );
+    }
+  }  
 };

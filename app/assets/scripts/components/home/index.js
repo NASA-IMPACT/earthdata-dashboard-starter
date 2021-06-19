@@ -484,9 +484,9 @@ class Home extends React.Component {
                   <IntroWelcomeTitle>Welcome</IntroWelcomeTitle>
                   <Prose>
                     <p>
-                      As communities around the world have changed their behavior in response
-                      to the spread of global phenomena, NASA satellites have observed changes in the
-                      environment. <Link to='/about' title='Read more on the about page'>Read more...</Link>
+                    As communities around the world have changed their behavior in response
+                    to the spread of global phenomena, NASA satellites have observed changes in the
+                    environment. <Link to='/about' title='Read more on the about page'>Read more...</Link>
                     </p>
                   </Prose>
                 </IntroWelcome>

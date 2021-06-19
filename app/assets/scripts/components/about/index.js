@@ -40,12 +40,7 @@ export default class About extends React.Component {
           <InpageBody>
             <PageConstrainer>
               <Prose>
-                <p>
-                  As the world moved indoors to shelter from the global pandemic sparked by the novel coronavirus, we
-                  could perceive changes on our planet. The sky seemed a little bluer, the air a little fresher, the animals in
-                  our yards more abundant.
-                </p>
-                <p>
+              <p>
                   The National Aeronautics and Space Administration&apos;s (NASA) continuous and sometimes near-real-time measurements of Earth allow for understanding both the systems
                   changes themselves and the potential impact on economies and society during the pandemic – and as the world
                   slowly returns to operations.
