@@ -484,16 +484,9 @@ class Home extends React.Component {
                   <IntroWelcomeTitle>Welcome</IntroWelcomeTitle>
                   <Prose>
                     <p>
-                      Similar to how communities around the world have changed their behavior 
-                      in response to the spread of global phenomena, NASA satellites have 
-                      observed changes in the environment.
-
-                      NASA's Land, Vegetation, and Ice Sensor or "LVIS," is an airborne, 
-                      wide-swath imaging laser altimeter system that is flown over target 
-                      areas to collect data on surface topography and 3D structures. In 
-                      February through-March 2016, the LVIS was mounted on the Langley 
-                      King Air aircraft and flown over selected sites in Gabon, Africa, 
-                      as part of the joint NASA/ESA/DLR/AGEOS Afrisar Campaign. <Link to='/about' title='Read more on the about page'>Read more...</Link>
+                    The Multi-Mission Algorithm and Analysis Platform (MAAP) is a collaborative science platform for biomass research. 
+                    The platform is a collaboration between science and engineering teams at NASA and ESA. 
+                    This experimental dashboard enables exploration of the data made available, and sharing of results developed by science users in the platform.
                     </p>
                   </Prose>
                 </IntroWelcome>
