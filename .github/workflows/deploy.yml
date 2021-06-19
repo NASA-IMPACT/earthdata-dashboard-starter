@@ -1,4 +1,4 @@
-name: Deploy Earthdata Dashboard Starter to MAAP AWS Account
+name: Deploy Earthdata Dashboard Starter to AWS Account
 on:
   push:
     branches:
@@ -8,7 +8,6 @@ on:
 env:
   AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
   AWS_REGION: ${{ secrets.AWS_REGION }}
-  DASHBOARD_BUCKET: ${{ secrets.DASHBOARD_BUCKET }}
   API_URL: ${{ secrets.API_URL }}
   STAGING_API_URL: ${{ secrets.STAGING_API_URL }}
 
@@ -27,7 +26,7 @@ jobs:
     needs: fetch-branch
     runs-on: ubuntu-latest
     steps:
-      - name: Configure AWS credentials from MAAP AWS Account
+      - name: Configure AWS credentials from AWS Account
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
