@@ -1,4 +1,4 @@
-name: Deploy Earthdata Dashboard Starter to MAAP AWS Account
+name: Deploy Earthdata Dashboard Starter to AWS Account
 on:
   push:
     branches:
