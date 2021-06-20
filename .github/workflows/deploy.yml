@@ -50,6 +50,7 @@ jobs:
       - name: Deploy the resources to AWS
         env:
           STAGE: ${{ needs.fetch-branch.outputs.branch }}
+          PROJECT: TEMPLATE_REPLACE_ME
         run: yarn deploy
 
       - run: echo "Successfully deployed."
