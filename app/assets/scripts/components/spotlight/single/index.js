@@ -315,10 +315,10 @@ function mapStateToProps (state, props) {
   const spotlightList = wrapApiResult(state.spotlight.list)
 
   const site = spotlightList.getData().find(x => x.id === spotlightId)
-  const summary = (site && site.summary) ? site.summary : "<p></p>";
+  const summary = (site && site.summary) ? parse(site.summary) : undefined;
 
   return {
-    summary: parse(summary),
+    summary: summary,
     mapLayers: getSpotlightLayers(spotlightId),
     spotlightList: spotlightList,
     spotlight: wrapApiResult(
