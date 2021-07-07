@@ -114,6 +114,7 @@
     "date-fns": "^2.12.0",
     "element-resize-event": "^3.0.3",
     "history": "^4.9.0",
+    "html-react-parser": "^1.2.7",
     "lodash.defaultsdeep": "^4.6.1",
     "lodash.find": "^4.6.0",
     "lodash.get": "^4.4.2",
