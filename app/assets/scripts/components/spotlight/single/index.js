@@ -45,7 +45,7 @@ import {
 } from '../../../utils/map-explore-utils';
 import QsState from '../../../utils/qs-state';
 import media, { isLargeViewport } from '../../../styles/utils/media-queries';
-import summaries from './summaries';
+import parse from 'html-react-parser';
 
 const ExploreCanvas = styled.div`
   display: grid;
@@ -312,10 +312,15 @@ SpotlightAreasSingle.propTypes = {
 function mapStateToProps (state, props) {
   const { spotlightId } = props.match.params;
 
+  const spotlightList = wrapApiResult(state.spotlight.list)
+
+  const site = spotlightList.getData().find(x => x.id === spotlightId)
+  const summary = (site && site.summary) ? parse(site.summary) : undefined;
+
   return {
-    summary: summaries[spotlightId],
+    summary: summary,
     mapLayers: getSpotlightLayers(spotlightId),
-    spotlightList: wrapApiResult(state.spotlight.list),
+    spotlightList: spotlightList,
     spotlight: wrapApiResult(
       getFromState(state, ['spotlight', 'single', spotlightId])
     )
