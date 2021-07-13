@@ -484,9 +484,7 @@ class Home extends React.Component {
                   <IntroWelcomeTitle>Welcome</IntroWelcomeTitle>
                   <Prose>
                     <p>
-                    The Multi-Mission Algorithm and Analysis Platform (MAAP) is a collaborative science platform for biomass research. 
-                    The platform is a collaboration between science and engineering teams at NASA and ESA. 
-                    This experimental dashboard enables exploration of the data made available, and sharing of results developed by science users in the platform.
+                      Project description goes here.
                     </p>
                   </Prose>
                 </IntroWelcome>
