@@ -32,7 +32,7 @@ class DataLayersBlock extends React.Component {
                     <li key={l.id}>
                       <Layer
                         id={l.id}
-                        label={l.name}
+                        label={l.title}
                         disabled={!mapLoaded}
                         type={l.type}
                         active={l.visible}

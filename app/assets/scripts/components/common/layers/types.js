@@ -354,9 +354,6 @@ export const layerTypes = {
       }
     },
     show: (ctx, layerInfo) => {
-      console.log('in vector case');
-      console.log(layerInfo);
-
       const { mbMap } = ctx;
       const { id, source, paint } = layerInfo;
       const vecId = `${id}-vector`;

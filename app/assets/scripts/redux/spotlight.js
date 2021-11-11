@@ -29,11 +29,11 @@ const spotlightActions = makeActions('SPOTLIGHT_LIST');
 
 export function fetchSpotlightList () {
   return makeFetchThunk({
-    url: `${config.api}/sites`,
+    url: `${config.api}`,
     cache: true,
     requestFn: spotlightActions.request,
     receiveFn: spotlightActions.receive,
-    mutator: d => d.sites
+    mutator: d => d.collections
   });
 }
 
