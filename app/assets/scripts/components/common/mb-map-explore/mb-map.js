@@ -214,13 +214,9 @@ class MbMap extends React.Component {
     // Update mapLayers if changed
     const { spotlightMarkers } = this.state.overlayState;
     if (prevState.overlayState.spotlightMarkers !== spotlightMarkers) {
-      if (spotlightMarkers) {
-        this.updateSpotlights();
-      } else {
-        this.spotlightMarkersList.forEach(m => m.remove());
-        this.spotlightMarkersList = [];
-        this.setState({ popover: {} });
-      }
+      this.spotlightMarkersList.forEach(m => m.remove());
+      this.spotlightMarkersList = [];
+      this.setState({ popover: {} });
     }
 
     // Update all active layers.
@@ -229,15 +225,6 @@ class MbMap extends React.Component {
     // Handle aoi state props update.
     if (this.mbDraw) {
       this.mbDraw.update(prevProps.aoiState, this.props.aoiState);
-    }
-
-    // If spotlightList is active and was made available, add it to the map
-    if (
-      spotlightList &&
-      spotlightList.isReady() &&
-      !prevProps.spotlightList.isReady()
-    ) {
-      this.updateSpotlights();
     }
   }
 
@@ -248,47 +235,6 @@ class MbMap extends React.Component {
         [id]: !state.overlayState[id]
       })
     }));
-  }
-
-  /**
-   * Adds spotlight markers to mbMap and mbMapComparing. This functions uses
-   * component state to control spotlights loading state, because maps will
-   * finish loading at different times.
-   */
-  updateSpotlights () {
-    // Check if spotlights are available
-    const { spotlightList } = this.props;
-    if (!spotlightList || !spotlightList.isReady()) return;
-
-    // Get spotlights from API data
-    const spotlights = spotlightList.getData();
-
-    // Define a common function to add markers
-    const addMarker = (spotlight, map) => {
-      return createMbMarker(map, { color: this.props.theme.color.primary })
-        .setLngLat(spotlight.center)
-        .addTo(map)
-        .onClick((coords) => {
-          this.props.fetchSpotlightSingle(spotlight.id);
-          this.setState({ popover: { coords, spotlightId: spotlight.id } });
-        });
-    };
-
-    // Add markers to mbMap, if not done yet
-    if (this.mbMap) {
-      spotlights.forEach((s) => {
-        const m = addMarker(s, this.mbMap);
-        this.spotlightMarkersList.push(m);
-      });
-    }
-
-    // Add markers to mbMapComparing, if not done yet
-    if (this.mbMapComparing) {
-      spotlights.forEach((s) => {
-        const m = addMarker(s, this.mbMapComparing);
-        this.spotlightMarkersList.push(m);
-      });
-    }
   }
 
   enableCompare (prevProps) {
@@ -345,7 +291,6 @@ class MbMap extends React.Component {
     this.mbMapComparing.once('load', () => {
       this.mbMapComparingLoaded = true;
       this.updateActiveLayers(prevProps);
-      this.updateSpotlights();
     });
 
     this.compareControl = new CompareMbGL(
@@ -447,11 +392,6 @@ class MbMap extends React.Component {
           ...allProps,
           comparing: false
         });
-      }
-
-      // If spotlight list is available on map mount, add it to the map
-      if (spotlightList && spotlightList.isReady()) {
-        this.updateSpotlights(spotlightList.getData());
       }
     });
 

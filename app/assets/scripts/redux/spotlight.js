@@ -33,7 +33,7 @@ export function fetchSpotlightList () {
     cache: true,
     requestFn: spotlightActions.request,
     receiveFn: spotlightActions.receive,
-    mutator: d => d.sites
+    mutator: d => d.collections
   });
 }
 

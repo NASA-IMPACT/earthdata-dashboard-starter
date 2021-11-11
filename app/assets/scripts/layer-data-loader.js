@@ -36,13 +36,17 @@ class LayerDataLoader extends React.Component {
   }
 
   async requestData (spotlightList) {
-    const ids = [...spotlightList.map((s) => s.id), 'global'];
+    const ids = spotlightList.map((s) => s.id);
     await Promise.all(
       ids.map(async (spotlightId) => {
         const { body } = await fetchJSON(
           `${config.api}/collections/${spotlightId}`
         );
-        storeSpotlightLayers(spotlightId, body.datasets);
+        body.type = 'raster';
+        body.source = {};
+        body.source.type = 'raster';
+        body.source.tiles = [ "https://titiler.maap-project.org/mosaicjson/mosaics/8610ecf4-d017-419b-a89a-dfb3b4e508f1/tiles/{z}/{x}/{y}.png?resampling_method=nearest&return_mask=true&bidx=6&rescale=0.01%2C0.5&colormap_name=viridis" ]
+        storeSpotlightLayers(spotlightId, body);
       })
     );
 
