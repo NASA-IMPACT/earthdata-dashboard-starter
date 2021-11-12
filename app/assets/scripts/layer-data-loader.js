@@ -45,7 +45,7 @@ class LayerDataLoader extends React.Component {
         body.type = 'raster';
         body.source = {};
         body.source.type = 'raster';
-        body.source.tiles = [ "https://titiler.maap-project.org/mosaicjson/mosaics/8610ecf4-d017-419b-a89a-dfb3b4e508f1/tiles/{z}/{x}/{y}.png?resampling_method=nearest&return_mask=true&bidx=6&rescale=0.01%2C0.5&colormap_name=viridis" ]
+        body.source.tiles = [ "https://titiler.maap-project.org/mosaicjson/mosaics/1d86f41a-d2e2-48b3-8a24-e3ee84c8c91a/tiles/{z}/{x}/{y}.png?bidx=1&colormap_name=viridis" ]
         storeSpotlightLayers(spotlightId, body);
       })
     );
