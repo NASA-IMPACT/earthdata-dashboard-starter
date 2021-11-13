@@ -39,9 +39,11 @@ class LayerDataLoader extends React.Component {
     const ids = spotlightList.map((s) => s.id);
     await Promise.all(
       ids.map(async (spotlightId) => {
+        console.log(`${config.api}/${spotlightId}`);
         const { body } = await fetchJSON(
           `${config.api}/collections/${spotlightId}`
         );
+
         body.type = 'raster';
         body.source = {};
         body.source.type = 'raster';

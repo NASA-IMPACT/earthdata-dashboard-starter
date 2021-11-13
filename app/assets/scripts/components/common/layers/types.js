@@ -1,5 +1,6 @@
 import { format, sub } from 'date-fns';
 import bbox from '@turf/bbox';
+import { fetchSearchResults } from '../../../../scripts/redux/reduxeed';
 
 const dateFormats = {
   monthOnly: 'MM',
@@ -229,6 +230,21 @@ export const layerTypes = {
     show: (ctx, layerInfo) => {
       const { mbMap } = ctx;
       const { id, source, paint } = layerInfo;
+      console.log(ctx.props);
+      // what bbox query from STAC
+      const aoiCoordinates = ctx.props.aoiState.feature.geometry.coordinates[0];
+      const bbox = [aoiCoordinates[0][0], aoiCoordinates[2][1], aoiCoordinates[1][0], aoiCoordinates[0][1]];
+      console.log(bbox)
+      // what time to query from STAC
+      const date = ctx.props.date;
+      if (date) {
+        // do something with the date
+      } else {
+        const date = Date.now()
+        console.log(date);
+      }
+      const searchResults = fetchSearchResults({ bbox });
+
 
       if (mbMap.getSource(id)) {
         mbMap.setLayoutProperty(id, 'visibility', 'visible');

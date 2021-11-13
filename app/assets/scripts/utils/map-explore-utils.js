@@ -411,7 +411,10 @@ export function toggleLayerRasterTimeseries (layer) {
  */
 export function getActiveTimeseriesLayers () {
   return this.props.mapLayers.filter(
-    (l) =>
-      console.log(l) && l.extent.includes('temporal') && this.state.activeLayers.includes(l.id)
+    (l) => {
+      // for now
+      return false;
+      //return Object.keys(l.extent).includes('temporal') && this.state.activeLayers.includes(l.id)
+    }
   );
 }
