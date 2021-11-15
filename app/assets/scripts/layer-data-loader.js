@@ -40,7 +40,7 @@ class LayerDataLoader extends React.Component {
     await Promise.all(
       ids.map(async (spotlightId) => {
         const { body } = await fetchJSON(
-          `${config.api}/datasets/${spotlightId}`
+          `${config.api}/collections/${spotlightId}`
         );
         storeSpotlightLayers(spotlightId, body.datasets);
       })

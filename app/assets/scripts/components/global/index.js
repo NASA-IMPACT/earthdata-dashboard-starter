@@ -30,6 +30,9 @@ import {
   fetchCogTimeData as fetchCogTimeDataAction,
   invalidateCogTimeData as invalidateCogTimeDataAction
 } from '../../redux/cog-time-data';
+import {
+  fetchSearchResults as fetchSearchResultsAction
+} from '../../redux/layer-data';
 import { utcDate } from '../../utils/utils';
 import { getGlobalLayers } from '../common/layers';
 import {
@@ -283,6 +286,7 @@ class GlobalExplore extends React.Component {
         // If there's no feature toggle the drawing.
         this.setState((state) => {
           const selected = !!state.aoi.feature && !state.aoi.selected;
+          
           return {
             aoi: {
               ...state.aoi,
@@ -294,8 +298,7 @@ class GlobalExplore extends React.Component {
         });
         break;
       case 'aoi.set-bounds':
-        this.setState(
-          (state) => ({
+        this.setState((state) => ({
             aoi: {
               ...state.aoi,
               feature: updateFeatureBounds(state.aoi.feature, payload.bounds),
@@ -341,6 +344,7 @@ class GlobalExplore extends React.Component {
 
     switch (action) {
       case 'aoi.draw-finish':
+        console.log('aoi.draw-finish');
         this.setState(
           (state) => ({
             aoi: {
@@ -350,7 +354,11 @@ class GlobalExplore extends React.Component {
               actionOrigin: 'map'
             }
           }),
-          () => {
+          async () => {
+            const aoiCoordinates = this.state.aoi.feature.geometry.coordinates[0];
+            const bbox = [aoiCoordinates[0][0], aoiCoordinates[2][1], aoiCoordinates[1][0], aoiCoordinates[0][1]];            
+            const searchResults = await this.props.fetchSearchResults({ bbox, collections: ['sentinel-s2-l2a-cogs'] });
+            console.log(searchResults);
             this.updateUrlQS();
             this.requestCogData();
           }
@@ -487,8 +495,10 @@ class GlobalExplore extends React.Component {
 GlobalExplore.propTypes = {
   fetchCogTimeData: T.func,
   invalidateCogTimeData: T.func,
+  fetchSearchResults: T.func,
   mapLayers: T.array,
   cogTimeData: T.object,
+  searchResults: T.object,
   spotlightList: T.object,
   location: T.object,
   history: T.object
@@ -504,6 +514,7 @@ function mapStateToProps (state, props) {
 
 const mapDispatchToProps = {
   fetchCogTimeData: fetchCogTimeDataAction,
+  fetchSearchResults: fetchSearchResultsAction,
   invalidateCogTimeData: invalidateCogTimeDataAction
 };
 

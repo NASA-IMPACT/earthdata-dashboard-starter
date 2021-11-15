@@ -5,10 +5,22 @@ import { makeActions, makeFetchThunk, makeAPIReducer } from './reduxeed';
 // LAYER_DATA
 // /////////////////////////////////////////////////////////////////////////////
 
-const {
-  // invalidate: invalidateLayerData,
-  request: requestLayerData,
-  receive: receiveLayerData
-} = makeActions('LAYER_DATA', true);
+const layerDataActions = makeActions('LAYER_DATA', true);
+
+export function fetchSearchResults (query) {
+  return makeFetchThunk({
+    url: `${config.api}/search`,
+    options: {
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/geo+json, application/json'
+        },
+        method: 'POST',
+        body: JSON.stringify(query)
+    },
+    requestFn: layerDataActions.request,
+    receiveFn: layerDataActions.receive
+  });
+}
 
 export default makeAPIReducer('LAYER_DATA', true);
