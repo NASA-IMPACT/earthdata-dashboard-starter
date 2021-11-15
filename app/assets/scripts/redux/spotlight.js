@@ -29,7 +29,7 @@ const spotlightActions = makeActions('SPOTLIGHT_LIST');
 
 export function fetchSpotlightList () {
   return makeFetchThunk({
-    url: `${config.api}`,
+    url: `${config.api}/collections`,
     cache: true,
     requestFn: spotlightActions.request,
     receiveFn: spotlightActions.receive,

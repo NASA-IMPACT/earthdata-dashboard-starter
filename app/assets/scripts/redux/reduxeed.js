@@ -137,22 +137,6 @@ export function makeAPIReducer (actionName, hasKey) {
  *  });
  * }
  */
-// @example with request options.
-export function fetchSearchResults (query) {
-  console.log(query)
-    return makeFetchThunk({
-    url: `${config.api}/search`,
-    options: {
-        headers: {
-        'Content-Type': 'application/json'
-        },
-        method: 'POST',
-        body: JSON.stringify(query)
-    },
-    requestFn: requestSearchResults,
-    receiveFn: receiveSearchResults
-    });
-}
 
 export function makeFetchThunk (opts) {
   const {
