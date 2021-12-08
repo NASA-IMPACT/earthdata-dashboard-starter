@@ -11,7 +11,7 @@ const spotlightSingleActions = makeActions('SPOTLIGHT_SINGLE', true);
 
 export function fetchSpotlightSingle (id) {
   return makeFetchThunk({
-    url: `${config.api}/sites/${id}`,
+    url: `${config.api}/collections/${id}`,
     // cache: true,
     statePath: ['spotlight', 'single', id],
     requestFn: spotlightSingleActions.request.bind(null, id),

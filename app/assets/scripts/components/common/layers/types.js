@@ -1,6 +1,6 @@
 import { format, sub } from 'date-fns';
 import bbox from '@turf/bbox';
-import { fetchSearchResults } from '../../../../scripts/redux/reduxeed';
+import { fetchSearchResults } from '../../../../scripts/redux/layer-data';
 
 const dateFormats = {
   monthOnly: 'MM',
@@ -185,6 +185,9 @@ export const layerTypes = {
       // Check if the source tiles have changed and need to be replaced. This
       // may happen in the stories when maintaining the layer and changing the
       // spotlight. One example is the slowdown raster layer on la and sf.
+      if (mbMap.getSource(id) === undefined) {
+        mbMap.addSource(id, source);
+      }
       const sourceTiles = mbMap.getSource(id).tiles;
       const newSourceTiles = source.tiles;
       // Quick compare
@@ -230,20 +233,19 @@ export const layerTypes = {
     show: (ctx, layerInfo) => {
       const { mbMap } = ctx;
       const { id, source, paint } = layerInfo;
-      console.log(ctx.props);
       // what bbox query from STAC
-      const aoiCoordinates = ctx.props.aoiState.feature.geometry.coordinates[0];
-      const bbox = [aoiCoordinates[0][0], aoiCoordinates[2][1], aoiCoordinates[1][0], aoiCoordinates[0][1]];
-      console.log(bbox)
+      if (ctx.props.aoiState.feature) {
+        const aoiCoordinates = ctx.props.aoiState.feature.geometry.coordinates[0];
+        const bbox = [aoiCoordinates[0][0], aoiCoordinates[2][1], aoiCoordinates[1][0], aoiCoordinates[0][1]];
+        const searchResults = fetchSearchResults({ bbox });
+      }
       // what time to query from STAC
       const date = ctx.props.date;
       if (date) {
         // do something with the date
       } else {
         const date = Date.now()
-        console.log(date);
       }
-      const searchResults = fetchSearchResults({ bbox });
 
 
       if (mbMap.getSource(id)) {
