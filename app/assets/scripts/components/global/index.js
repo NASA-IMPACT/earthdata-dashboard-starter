@@ -344,7 +344,6 @@ class GlobalExplore extends React.Component {
 
     switch (action) {
       case 'aoi.draw-finish':
-        console.log('aoi.draw-finish');
         this.setState(
           (state) => ({
             aoi: {
@@ -358,7 +357,6 @@ class GlobalExplore extends React.Component {
             const aoiCoordinates = this.state.aoi.feature.geometry.coordinates[0];
             const bbox = [aoiCoordinates[0][0], aoiCoordinates[2][1], aoiCoordinates[1][0], aoiCoordinates[0][1]];            
             const searchResults = await this.props.fetchSearchResults({ bbox, collections: ['sentinel-s2-l2a-cogs'] });
-            console.log(searchResults);
             this.updateUrlQS();
             this.requestCogData();
           }
