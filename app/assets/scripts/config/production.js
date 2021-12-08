@@ -1,3 +1,4 @@
+// module exports is required to be able to load from gulpfile.
 module.exports = {
   default: {
     environment: 'production',
@@ -5,7 +6,7 @@ module.exports = {
     appDescription: 'Explore the data using our new experimental dashboard.',
     twitterHandle: '@NASAEarthData',
     mbToken: 'pk.eyJ1IjoiY292aWQtbmFzYSIsImEiOiJja2F6eHBobTUwMzVzMzFueGJuczF6ZzdhIn0.8va1fkyaWgM57_gZ2rBMMg',
-    api: process.env.STAGE == "staging" ? process.env.STAGING_API_URL : (process.env.API_URL || 'http://localhost:8000/v1'),
+    api: process.env.STAGE == "staging" ? process.env.STAGING_API_URL : (process.env.API_URL || 'https://earth-search.aws.element84.com/v0'),
     map: {
       center: [0, 0],
       zoom: 2,
